@@ -42,8 +42,8 @@ function formatDate(date) {
     const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
         "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
-    return ${day} ${monthNames[monthIndex]} ${year};
-}
+        return `${day} ${monthNames[monthIndex]} ${year}`;
+      }
 
 function getMaxCharWidth(ctx, font) {
     ctx.font = font; // Set the desired font
@@ -101,7 +101,7 @@ app.get("/api/genImage/get-image-with-date", async (req, res) => {
                 
                     const text = branchName;
                     const fontSize = 35;
-                    ctx.font = ${fontSize}px Arial;
+                    ctx.font = `${fontSize}px Arial`;
                     ctx.fillStyle = "black";
                     const maxCharWidth = getMaxCharWidth(ctx, "35px Arial");
                 
