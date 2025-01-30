@@ -2655,7 +2655,7 @@ const initializeDatabase = async () => {
                         logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs8R4K8CldBXma-71sNRe7zl2stWdcMJIilQ&s",
                         products: ["Dater", "Mini Dater", "Approval", "Paid", "Locker", "Number", "Fake Note", "Decline"],
                         password: 1529,
-                        branchName: "Pozhiyoor - Kulathoor",
+                        branchName: "Pozhiyoor",
                         address: " No: 6/468,Ravi'S Mall, Uchakada Junction ,Kulathoor, Uchakada P O, Thiruvanathapuram  District, Kerala – 695506"
                     },
                 {
@@ -2940,7 +2940,7 @@ const initializeDatabase = async () => {
                         logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs8R4K8CldBXma-71sNRe7zl2stWdcMJIilQ&s",
                         products: ["Dater", "Mini Dater", "Approval", "Paid", "Locker", "Number", "Fake Note", "Decline"],
                         password: 1544,
-                        branchName: "Pardi - Nagpur",
+                        branchName: "Pardi",
                         address: "Plot No.591/150 Ward No.21,Surya Nagar ,Beside Haldiram Head Office, Old Bhandara Road ,Old Pardi Naka ,Pardi -Nagpur,Maharashtra 440002"
                     },
                 {
@@ -3271,7 +3271,7 @@ const initializeDatabase = async () => {
                         logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs8R4K8CldBXma-71sNRe7zl2stWdcMJIilQ&s",
                         products: ["Dater", "Mini Dater", "Approval", "Paid", "Locker", "Number", "Fake Note", "Decline"],
                         password: 1567,
-                        branchName: "Nagpur- Sadar",
+                        branchName: "Sadar",
                         address: "Plot No 1, Aswathi Nagar Road,Near Zingabai Takli Signal,Sadiqabad, Mankapur P O, Nagpur, Maharashtra-440013"
                     },
                 {
@@ -4242,7 +4242,7 @@ const initializeDatabase = async () => {
                         logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs8R4K8CldBXma-71sNRe7zl2stWdcMJIilQ&s",
                         products: ["Dater", "Mini Dater", "Approval", "Paid", "Locker", "Number", "Fake Note", "Decline"],
                         password: 1641,
-                        branchName: "Puthanathani.",
+                        branchName: "Puthanathani",
                         address: "No 22/1373 To 1376,Mattil Mall, Nh -66, Kurumbathur, Puthanathani P O,Malappuram, Kerala-676552"
                     },
                 {
@@ -4627,7 +4627,7 @@ const initializeDatabase = async () => {
                         logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs8R4K8CldBXma-71sNRe7zl2stWdcMJIilQ&s",
                         products: ["Dater", "Mini Dater", "Approval", "Paid", "Locker", "Number", "Fake Note", "Decline"],
                         password: 1679,
-                        branchName: "Malleshwaram.",
+                        branchName: "Malleshwaram",
                         address: "No 21, Sampige Main Road,10Th Cross, Malleshwaram,Bengaluru-Karnataka-560003"
                     },
                 {
@@ -4915,7 +4915,7 @@ const initializeDatabase = async () => {
                         logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs8R4K8CldBXma-71sNRe7zl2stWdcMJIilQ&s",
                         products: ["Dater", "Mini Dater", "Approval", "Paid", "Locker", "Number", "Fake Note", "Decline"],
                         password: 1764,
-                        branchName: "Rampur Naikin",
+                        branchName: "Rampur",
                         address: "Sree Sector, Opp. Higher Secondary School, Rampur Naikin P O, Sidhi, Madhyapradesh-486775"
                     },
                 {
