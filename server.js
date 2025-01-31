@@ -136,3 +136,18 @@ app.use("/images", express.static(path.join(__dirname, "images")));
 app.listen(port, () => {
   console.log("Server Running on ", port);
 });
+
+
+
+const corsOptions = {
+  origin: "https://image-system1.vercel.app", // Allow frontend domain
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  allowedHeaders: "Content-Type, Authorization"
+};
+
+app.use(cors(corsOptions));
+
+// Handle preflight requests for all routes
+app.options("*", cors(corsOptions));
+

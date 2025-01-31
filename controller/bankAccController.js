@@ -3,25 +3,40 @@ import bankAccModel from "../models/bankAccModel.js"
 
 const loginBankAcc = async (req, res) => {
     try {
-        const { branchName, password } = req.body
+        console.log(" Received login request:", req.body); // Log frontend request
 
-        const user = await bankAccModel.findOne({branchName})
+        const { branchName, password } = req.body;
 
-        if(!user){
-            return res.json({success : false, message : "Bank Doesn't Exists"})
+        if (!branchName || !password) {
+            return res.status(400).json({ success: false, message: "Missing required fields" });
         }
 
-        if(user.password === password){
-            res.json({success : true, branchInfo : user})
-        }else{
-            res.json({success : false, message : "Invalid Credentials"})
+        console.log(" Searching for branch:", branchName);
+
+        // Use case-insensitive search to avoid mismatches
+        const user = await bankAccModel.findOne({ 
+            branchName: { $regex: `^${branchName}$`, $options: "i" }
+        });
+
+        console.log(" Query Result:", user); // Log MongoDB query result
+
+        if (!user) {
+            return res.status(404).json({ success: false, message: "Bank Doesn't Exist" });
+        }
+
+        // If password is stored as a hashed value, use bcrypt to compare
+        if (user.password === password) {  // Change this to bcrypt.compare(password, user.password) if hashed
+            return res.status(200).json({ success: true, branchInfo: user });
+        } else {
+            return res.status(401).json({ success: false, message: "Invalid Credentials" });
         }
 
     } catch (error) {
-        console.log(error);
-        res.json({success : false, message : error.message})
+        console.error(" Error:", error);
+        return res.status(500).json({ success: false, message: "Server Error" });
     }
-}
+};
+
 
 const getBankAccInfo = async (req, res) => {
     try {
