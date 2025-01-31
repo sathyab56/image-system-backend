@@ -3,42 +3,72 @@ import bankAccModel from "../models/bankAccModel.js"
 
 const loginBankAcc = async (req, res) => {
     try {
-        const { branchName, password } = req.body
+        const { branchName, password } = req.body;
 
-        const user = await bankAccModel.findOne({branchName})
+        console.log("🔹 Received login request for:", branchName);
+        console.log("🔹 Entered password:", password);
 
-        if(!user){
-            return res.json({success : false, message : "Bank Doesn't Exists"})
+        // Case-insensitive branch search
+        const user = await bankAccModel.findOne({
+            branchName: new RegExp(`^${branchName}$`, "i") // Case-insensitive
+        });
+
+        console.log("🔹 Query result:", user);
+
+        if (!user) {
+            console.log("❌ Error: Bank Doesn't Exist in DB");
+            return res.status(404).json({ success: false, message: "Bank Doesn't Exist" });
         }
 
-        if(user.password === password){
-            res.json({success : true, branchInfo : user})
-        }else{
-            res.json({success : false, message : "Invalid Credentials"})
+        if (user.password === password) {
+            console.log("✅ Login successful for:", branchName);
+            return res.status(200).json({ success: true, branchInfo: user });
+        } else {
+            console.log("❌ Error: Invalid Password");
+            return res.status(401).json({ success: false, message: "Invalid Credentials" });
         }
-
     } catch (error) {
-        console.log(error);
-        res.json({success : false, message : error.message})
+        console.error("❌ Server Error:", error);
+        return res.status(500).json({ success: false, message: "Internal Server Error" });
     }
-}
+};
+
 
 const getBankAccInfo = async (req, res) => {
     try {
-        const { branchName } = req.body
+        const { branchName } = req.body;
 
-        const user = await bankAccModel.findOne({branchName})
-        
-        if(!user){
-            return res.json({success : false, message : "Bank Doesn't Exists"})
+        console.log("🔹 Received branchName:", branchName);
+
+        // Validate input
+        if (!branchName) {
+            console.log("❌ Error: branchName is missing");
+            return res.status(400).json({ success: false, message: "Branch name is required" });
         }
 
-        res.json({success : true, branchInfo : user})
+        // Check database connection
+        console.log("🔹 Querying database for:", branchName);
+
+        // Case-insensitive search in MongoDB
+        const branchInfo = await bankAccModel.findOne({
+            branchName: new RegExp(`^${branchName}$`, "i") // Case-insensitive search
+        }).lean();
+
+        console.log("🔹 Query result:", branchInfo);
+
+        if (!branchInfo) {
+            console.log("❌ Error: Bank Doesn't Exist in DB");
+            return res.status(404).json({ success: false, message: "Bank Doesn't Exist" });
+        }
+
+        console.log("✅ Found Bank:", branchInfo);
+        res.status(200).json({ success: true, branchInfo });
     } catch (error) {
-        console.log(error);
-        res.json({success : false, message : error.message})
+        console.error("❌ Server Error:", error);
+        res.status(500).json({ success: false, message: "Internal server error" });
     }
-}
+};
+
 
 const addBankAcc = async (req, res) => {
     try {

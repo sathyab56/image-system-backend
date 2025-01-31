@@ -32,7 +32,7 @@ const bankAccSchema = new mongoose.Schema({
     }
 }, { minimize : false })
 
-const bankAccModel = mongoose.models.bankAcc || mongoose.model('bankAccs', bankAccSchema)
+const bankAccModel = mongoose.models.bankAcc || mongoose.model('bankAcc', bankAccSchema)
 
 // Function to initialize the database and insert sample data
 const initializeDatabase = async () => {
