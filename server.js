@@ -140,7 +140,7 @@ app.listen(port, () => {
 
 
 const corsOptions = {
-  origin: "https://image-system1-1kp1.vercel.app", // Allow frontend domain
+  origin: "https://esaf-756f.vercel.app", 
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   allowedHeaders: "Content-Type, Authorization"
